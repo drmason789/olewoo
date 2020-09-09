@@ -18,6 +18,9 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -30,17 +33,14 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup>
     <!-- Preperties for nuget packaging -->
-    <PackageId>OleWoo.OleDump</PackageId>
+    <!--<PackageId>OleWoo.OleDump</PackageId>
     <PackageVersion>1.0.0.0</PackageVersion>
-    <PackageDescription>Command line tool that dumps tlb (type library) files to IDL (Interface Definition Language).</PackageDescription>
+    <PackageDescription>Command line tool that dumps type library files to IDL (Interface Definition Language).</PackageDescription>
     <Authors>OleWoo</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>olewoo.ico</PackageIcon>
@@ -48,9 +48,12 @@
     <Company>http://www.benf.org</Company>
     <Copyright>Lee Benfield © 2010-2020</Copyright>
     <PackageTags>oleview olewoo typelibrary "type library" typelib tlb idl midl "interface definition language" tlbexp com</PackageTags>
-	<IsTool>true</IsTool>
-	<NoBuild />
-	<PackageOutputPath>..\$(Configuration)</PackageOutputPath>
+    <IsTool>true</IsTool>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageOutputPath>..\$(Configuration)</PackageOutputPath>
+    <IncludeBuildOutput>true</IncludeBuildOutput>-->
+    <NuspecFile>OleWoo.OleDump.nuspec</NuspecFile>
+	<NuspecProperties>configuration=$(Configuration)</NuspecProperties>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -74,6 +77,7 @@
     <!-- Nuget package content -->
     <None Include="..\olewoo_ui\olewoo.ico" Pack="true" PackagePath="\" />
     <None Include="..\License.txt" Pack="true" PackagePath="\" />
+    <None Include="olewoo.oledump.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
