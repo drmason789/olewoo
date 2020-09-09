@@ -33,6 +33,24 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup>
+    <!-- Preperties for nuget packaging -->
+    <PackageId>OleWoo.OleDump</PackageId>
+    <PackageVersion>1.0.0.0</PackageVersion>
+    <PackageDescription>Command line tool that dumps tlb (type library) files to IDL (Interface Definition Language).</PackageDescription>
+    <Authors>OleWoo</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>olewoo.ico</PackageIcon>
+    <PackageProjectUrl>https://github.com/leibnitz27/olewoo</PackageProjectUrl>
+    <Company>http://www.benf.org</Company>
+    <Copyright>Lee Benfield © 2010-2020</Copyright>
+    <PackageTags>oleview olewoo typelibrary "type library" typelib tlb idl midl "interface definition language" tlbexp com</PackageTags>
+	<IsTool>true</IsTool>
+	<NoBuild />
+	<PackageOutputPath>..\$(Configuration)</PackageOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,6 +70,11 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <ItemGroup>
+    <!-- Nuget package content -->
+    <None Include="..\olewoo_ui\olewoo.ico" Pack="true" PackagePath="\" />
+    <None Include="..\License.txt" Pack="true" PackagePath="\" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -91,6 +114,13 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NuGet.Build.Tasks.Pack">
+      <Version>5.7.0</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
